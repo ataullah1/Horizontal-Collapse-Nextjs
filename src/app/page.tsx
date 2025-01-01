@@ -10,7 +10,7 @@ export default function Home() {
       </h1>
 
       {/* Main Component------------- */}
-      <main className="h-full">
+      <main className="h-full w-full flex items-center justify-center border border-gray-700 rounded-xl container mx-auto my-20">
         <GitHubCorner />
         <HorizontalCollapse />
       </main>
@@ -18,7 +18,7 @@ export default function Home() {
       {/* Footer ------ */}
       <footer className="text-center py-4 text-gray-200 border-t border-gray-600">
         <p>
-          Developed with ❤️ by{" "}
+          &copy; {new Date().getFullYear()} | Developed with ❤️ by{" "}
           <Link
             href="https://www.linkedin.com/in/md-ataullah/"
             target="_blank"
@@ -27,10 +27,6 @@ export default function Home() {
           >
             Md. Ataullah
           </Link>
-        </p>
-        <p>
-          &copy; {new Date().getFullYear()} Horizontal Collapse Nextjs. All
-          Rights Reserved.
         </p>
       </footer>
     </div>

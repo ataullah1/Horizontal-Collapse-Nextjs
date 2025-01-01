@@ -23,12 +23,7 @@ $transitionDurationMs: 0.5s;
   }
 
   &__item {
-    min-height: auto;
     list-style: none;
-    padding: 0;
-    overflow: hidden;
-    min-width: 10rem;
-    max-width: 40rem;
     position: relative;
     transition: width $transitionDurationMs;
 
@@ -53,8 +48,6 @@ $transitionDurationMs: 0.5s;
     opacity: 1;
     transition: opacity $transitionDurationMs;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 
     .horizontal-collapse__heading {
       user-select: none;

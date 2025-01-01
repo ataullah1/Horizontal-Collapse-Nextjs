@@ -4,7 +4,8 @@ import "./style/GitHubCorner.css";
 const GitHubCorner = () => {
   return (
     <a
-      href="https://github.com/basic-tricks/vue-horizontal-collapse"
+      href="https://github.com/ataullah1/Horizontal-Collapse-Nextjs"
+      target="_blank"
       className="github-corner"
       aria-label="View source on GitHub"
     >
@@ -16,9 +17,9 @@ const GitHubCorner = () => {
           fill: "#151513",
           color: "#fff",
           position: "absolute",
-          top: 0,
-          border: 0,
-          right: 0,
+          top: 10,
+          border: 10,
+          right: 10,
         }}
         aria-hidden="true"
       >

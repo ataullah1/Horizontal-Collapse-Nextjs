@@ -40,13 +40,14 @@ const HorizontalCollapse = () => {
   return (
     <section className="js-horizontal-collapse horizontal-collapse">
       <ul className="horizontal-collapse__inner gap-6 rounded-md">
-        {collapseItems.map((item) => (
+        {collapseItems.map((item, index) => (
           <HorizontalCollapseItem
             key={item.id}
-            className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a]`}
+            className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a] min-h-[400px]`}
+            defaultActive={index === 0} // Set first item as active
           >
-            <div className="horizontal-collapse__inactive-content">
-              <h2 className="horizontal-collapse__heading text-4xl">
+            <div className="horizontal-collapse__inactive-content left-1/2 -translate-x-1/2">
+              <h2 className="horizontal-collapse__heading text-4xl z-10">
                 {item.inactiveHeading}
               </h2>
             </div>
