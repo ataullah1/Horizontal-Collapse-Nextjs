@@ -1,4 +1,6 @@
 $transitionDurationMs: 0.5s;
+$transitionDurationMs2: 2s;
+$transitionDurationMs3: 0.3s;
 
 .horizontal-collapse {
   width: 100%;
@@ -8,12 +10,6 @@ $transitionDurationMs: 0.5s;
   justify-content: center;
   margin-bottom: 5rem;
   color: #fff;
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
 
   &__inner {
     padding: 0;
@@ -28,14 +24,13 @@ $transitionDurationMs: 0.5s;
     transition: width $transitionDurationMs;
 
     &.is-active {
-      // color: #fff;
-
       .horizontal-collapse__inactive-content {
         opacity: 0;
       }
 
       .horizontal-collapse__active-content {
         opacity: 1;
+        transition: opacity $transitionDurationMs2;
       }
     }
   }
@@ -60,8 +55,10 @@ $transitionDurationMs: 0.5s;
 
   &__active-content {
     opacity: 0;
-    transition: opacity $transitionDurationMs;
-    cursor: default;
+    // transition: opacity $transitionDurationMs;
+    // transition: opacity $transitionDurationMs2;
+    cursor: pointer;
+    overflow: hidden;
   }
 
   &__heading {

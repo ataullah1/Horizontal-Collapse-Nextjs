@@ -54,7 +54,7 @@ const HorizontalCollapse = () => {
                     {item.inactiveHeading}
                   </h2>
                 </div>
-                <div className="horizontal-collapse__active-content">
+                <div className="horizontal-collapse__active-content overflow-hidden">
                   <h2 className="horizontal-collapse__heading text-3xl">
                     {item.activeHeading}
                   </h2>
