@@ -10,6 +10,12 @@ Horizontal Collapse Nextjs provides a responsive and modern Horizontal Collapse 
 
 ---
 
+## Demo Screenshot
+
+![Horizontal Collapse Screenshot](https://github.com/ataullah1/Horizontal-Collapse-Nextjs/blob/main/demo-screenshot.png)
+
+---
+
 ## Tech Stack
 
 - **React**: A JavaScript library for building user interfaces.  
