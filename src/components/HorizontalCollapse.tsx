@@ -1,9 +1,17 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "./style/HorizontalCollapse.scss";
 import HorizontalCollapseItem from "./HorizontalCollapseItem";
 import HorizontalCollapseMobile from "./HorizontalCollapseMobile";
 
 const HorizontalCollapse = () => {
+  // Set the default active item to the first one (index 0)
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const handleItemClick = (index: number) => {
+    setActiveIndex(activeIndex === index ? -1 : index); // Toggle the active item or collapse if it's already active
+  };
+
   // Dynamic data array
   const collapseItems = [
     {
@@ -40,21 +48,22 @@ const HorizontalCollapse = () => {
 
   return (
     <section className="p-5">
-      <div className="hidden lg:block ">
+      <div className="hidden lg:block">
         <div className="js-horizontal-collapse horizontal-collapse">
-          <ul className="horizontal-collapse__inner gap-6 rounded-md">
+          <div className="horizontal-collapse__inner gap-6 rounded-md">
             {collapseItems.map((item, index) => (
               <HorizontalCollapseItem
                 key={item.id}
-                className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a] min-h-[400px]`}
-                defaultActive={index === 0} // Set first item as active
+                className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a] min-h-[400px] p-5`}
+                isActive={activeIndex === index} // Pass the active state to each item
+                onClick={() => handleItemClick(index)} // Handle click event for the item
               >
                 <div className="horizontal-collapse__inactive-content left-1/2 -translate-x-1/2">
                   <h2 className="horizontal-collapse__heading text-4xl z-10">
                     {item.inactiveHeading}
                   </h2>
                 </div>
-                <div className="horizontal-collapse__active-content overflow-hidden">
+                <div className="horizontal-collapse__active-content">
                   <h2 className="horizontal-collapse__heading text-3xl">
                     {item.activeHeading}
                   </h2>
@@ -62,7 +71,7 @@ const HorizontalCollapse = () => {
                 </div>
               </HorizontalCollapseItem>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
 

@@ -1,45 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
-import { useClickAway } from "react-use";
+import React from "react";
 
 interface HorizontalCollapseItemProps {
   className?: string;
   children: React.ReactNode;
-  defaultActive?: boolean; // Added defaultActive prop
+  isActive: boolean; // Receive the active state
+  onClick: () => void; // Receive the click handler
 }
 
 const HorizontalCollapseItem: React.FC<HorizontalCollapseItemProps> = ({
   className,
   children,
-  defaultActive = false, // Default to false
+  isActive,
+  onClick,
 }) => {
-  const [isActive, setIsActive] = useState(defaultActive); // Initialize state with defaultActive
   const itemMinWidth = 100;
   const itemMaxWidth = 500;
-
-  const ref = React.useRef<HTMLLIElement>(null);
-
-  useClickAway(ref, () => {
-    setIsActive(false);
-  });
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setIsActive(!isActive);
+      onClick(); // Toggle the active state on keyboard interaction
     }
   };
 
   return (
-    <li
-      onClick={() => setIsActive(!isActive)}
-      ref={ref}
+    <div
+      onClick={onClick} // Only toggles on click inside the item
       onKeyDown={handleKeyDown}
       style={{
         width: isActive ? `${itemMaxWidth}px` : `${itemMinWidth}px`,
       }}
-      className={`horizontal-collapse__item rounded-xl z-20 ${
+      className={`horizontal-collapse__item rounded-xl ${
         isActive ? "is-active" : ""
       } ${className}`}
       tabIndex={0}
@@ -47,11 +40,11 @@ const HorizontalCollapseItem: React.FC<HorizontalCollapseItemProps> = ({
     >
       <div
         style={{ width: `${itemMaxWidth}px` }}
-        className="horizontal-collapse__item-inner"
+        className="horizontal-collapse__item-inner p-5 z-20"
       >
         {children}
       </div>
-    </li>
+    </div>
   );
 };
 
