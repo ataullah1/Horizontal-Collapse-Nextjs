@@ -10,7 +10,7 @@ Horizontal Collapse Nextjs provides a responsive and modern Horizontal Collapse 
 
 ---
 
-## Demo Screenshot
+## Demo Screenshot || [Live Demo](https://horizontal-collapse-nextjs.vercel.app/)
 
 ![Horizontal Collapse Screenshot](https://github.com/ataullah1/Horizontal-Collapse-Nextjs/blob/main/demo-screenshot.png)
 
