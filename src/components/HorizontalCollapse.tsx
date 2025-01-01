@@ -1,6 +1,7 @@
 import React from "react";
 import "./style/HorizontalCollapse.scss";
 import HorizontalCollapseItem from "./HorizontalCollapseItem";
+import HorizontalCollapseMobile from "./HorizontalCollapseMobile";
 
 const HorizontalCollapse = () => {
   // Dynamic data array
@@ -38,28 +39,36 @@ const HorizontalCollapse = () => {
   ];
 
   return (
-    <section className="js-horizontal-collapse horizontal-collapse">
-      <ul className="horizontal-collapse__inner gap-6 rounded-md">
-        {collapseItems.map((item, index) => (
-          <HorizontalCollapseItem
-            key={item.id}
-            className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a] min-h-[400px]`}
-            defaultActive={index === 0} // Set first item as active
-          >
-            <div className="horizontal-collapse__inactive-content left-1/2 -translate-x-1/2">
-              <h2 className="horizontal-collapse__heading text-4xl z-10">
-                {item.inactiveHeading}
-              </h2>
-            </div>
-            <div className="horizontal-collapse__active-content">
-              <h2 className="horizontal-collapse__heading text-3xl">
-                {item.activeHeading}
-              </h2>
-              <p className="horizontal-collapse__body">{item.body}</p>
-            </div>
-          </HorizontalCollapseItem>
-        ))}
-      </ul>
+    <section className="p-5">
+      <div className="hidden lg:block ">
+        <div className="js-horizontal-collapse horizontal-collapse">
+          <ul className="horizontal-collapse__inner gap-6 rounded-md">
+            {collapseItems.map((item, index) => (
+              <HorizontalCollapseItem
+                key={item.id}
+                className={`horizontal-collapse__item--${item.id} border border-[#ffffff1a] min-h-[400px]`}
+                defaultActive={index === 0} // Set first item as active
+              >
+                <div className="horizontal-collapse__inactive-content left-1/2 -translate-x-1/2">
+                  <h2 className="horizontal-collapse__heading text-4xl z-10">
+                    {item.inactiveHeading}
+                  </h2>
+                </div>
+                <div className="horizontal-collapse__active-content">
+                  <h2 className="horizontal-collapse__heading text-3xl">
+                    {item.activeHeading}
+                  </h2>
+                  <p className="horizontal-collapse__body">{item.body}</p>
+                </div>
+              </HorizontalCollapseItem>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mx-auto w-full lg:hidden">
+        <HorizontalCollapseMobile collapseItems={collapseItems} />
+      </div>
     </section>
   );
 };
